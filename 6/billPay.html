@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="billpayApp">
+<head>
+  <title>AngularJS Bill Payment Record :Creating a View to Display the Model Data </title>
+    <link href="bootstrap.css" rel="stylesheet" />
+    <link href="bootstrap-theme.css" rel="stylesheet" />
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+    <script>
+      var dataModel = {
+        customer: "Tintin",
+        items:[{ bill:"Electricity", status: false},
+               { bill:"Internet(Wi/fi)", status:false },
+               { bill:"Parking Charges", status:false },
+               { bill:"Phone", status:true},
+               { bill:"House Tax", status:true}]
+      };
+      
+      var billpayApp = angular.module("billpayApp", []);
+      
+      billpayApp.controller("billPayCtrl", function($scope){  /* first argument is name of Controller, 
+	                                                             second is a function to be called to define 
+	                                                             the functionality of controller*/
+        
+      $scope.billpay = dataModel // property billpay on $scope service object, and assign dataModel to it
+      });
+   </script>
+  
+   </head>
+<body ng-controller="billPayCtrl">
+    <div class="page-header">
+        <h1>Bill Payment</h1>
+    </div>
+    <div class="panel">
+        <div class="input-group">
+            <input class="form-control" />
+            <span class="input-group-btn">
+                <button class="btn btn-danger">+</button>
+            </span>
+        </div>
+        <table class="table table-striped">
+          
+            <thead>
+                <tr>
+                    <th>Bill Name</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+          
+            <tbody>
+              <tr ng-repeat="item in billpay.items">
+                <td>{{item.bill}}</td>
+                <td>{{item.status}}</td>
+              </tr>              
+           </tbody>
+          
+        </table>
+    </div>
+</body>
+</html>

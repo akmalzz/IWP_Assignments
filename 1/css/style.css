@@ -1,0 +1,16 @@
+#info-h4{
+  text-align: justify;
+  margin-right: 40px;
+  margin-left: 40px;
+}
+
+#info-p{
+  text-align: justify;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+#info-p h6{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
